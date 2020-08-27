@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container text-center">
+    {{ article_list.start_index }}
+    {{ article_list.end_index }}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>번호</th><th>제목</th><th>작성자</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% for article in article_list %}
+                <tr>
+                    <td>{{ article.id }}</td>
+                    <td>
+                        <a href = "/article/detail/{{ article.id }}">
+                            {{ article.title }}
+                        </a>
+                    </td>
+                    <td>{{ article.user.name }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        
+        {% for idx in num_list %}
+            {{ idx }}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

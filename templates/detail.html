@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" style='margin-top:30px;'>
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading" style='background-color: beige;'>
+                {{ article.id }}번
+            </div>
+            <div class="panel-heading">{{ article.title }}</div>
+            <div class="panel-body">{{ article.content }}</div>
+            <div class="panel-footer">{{ article.user.name }}</div>
+        </div>
+    </div>
+</div>
+<div class="container text-right">
+    <a href = "/article/list" class="btn btn-default" id="list">목록</a>
+    <a href = "/article/update/{{ article.id }}" class="btn btn-default" id="update">수정</a>
+    <a href = "/article/delete/{{ article.id }}" class="btn btn-default" id="delete">삭제</a>
+</div>
+{% endblock %}
